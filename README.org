@@ -1,0 +1,3 @@
+#+TITLE: Beamer — Template
+
+[[slides/output/beamer-template-2016-08-05.pdf][Template (PDF)]].

@@ -20,6 +20,8 @@
 
 \definecolor{shade}{RGB}{240,240,240}
 \definecolor{blue}{RGB}{0,76,153}
+\definecolor{unicphred}{RGB}{80,0,0}
+\definecolor{ucphgrey}{RGB}{233,225,224}
 
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\mono}[1]{\texttt{#1}}
@@ -81,28 +83,36 @@
   language=bash
 }
 
-\setbeamercolor{title}{fg=blue,bg=shade}
-\setbeamercolor{frametitle}{fg=blue,bg=shade}
-\setbeamercolor{normal text}{fg=blue,bg=shade}
-\setbeamercolor{background canvas}{bg=shade}
-\setbeamercolor{normal text}{fg=blue,bg=shade}
+\setbeamercolor{title}{fg=black,bg=white}
+\setbeamercolor{frametitle}{fg=unicphred,bg=white}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=black,bg=white}
 
 \setbeamercolor{bibliography item}{fg=blue}
 \setbeamercolor{bibliography entry author}{fg=blue}
 \setbeamertemplate{bibliography item}[text]
 
+\setbeamertemplate{headline}{%
+  \vspace*{5pt}
+  \hfill
+  \insertpart
+  \quad
+  \insertsection
+  \quad
+  \insertdate
+  \quad
+  \insertpagenumber
+  \hspace*{5pt}
+}
+
+\pgfdeclareverticalshading{beamer@headfade}{\paperwidth}{%
+  color(0pt)=(ucphgrey);
+  color(\headheight)=(white)}
+
+\addtoheadtemplate{%
+  \pgfuseshading{beamer@headfade}%
+  \vspace{-\headheight}
+}{}
+
 \usepackage{fancyvrb}
-
-\newcommand{\question}[1]%
-{%
-  \begin{center}%
-  \Large \textbf{#1}%
-  \end{center}%
-}
-
-\newcommand{\answer}[1]%
-{%
-  \begin{flushright}%
-  --- #1%
-  \end{flushright}%
-}

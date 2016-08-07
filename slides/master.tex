@@ -2,13 +2,36 @@
 
 \input{header}
 
-\title{Oleks' Beamer Template}
+\title{Beamer Template}
 \subtitle{DIKU}
 \author{\texttt{<oleks@oleks.info>}}
 
+%\setbeamersize{text margin right=0pt}
 \begin{document}
 
-\begin{frame} \titlepage \end{frame}
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \begin{minipage}{0.5\textwidth}
+  \end{minipage}
+  \hfill
+  \noindent\fcolorbox{white}{white}{\begin{minipage}{0.5\textwidth}
+    \usebeamerfont{title}\inserttitle\par
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \bigskip
+    \usebeamerfont{author}\insertauthor\par
+    \usebeamerfont{institute}\insertinstitute\par
+    \usebeamerfont{date}\insertdate\par
+  \end{minipage}}
+}
+
+%\newgeometry{top=0pt, right=0pt}%, bottom=0pt, left=0pt}
+{%
+\usebackgroundtemplate{%
+  \includegraphics[height=\paperheight,width=\paperwidth]{background}%
+}%
+\maketitle
+}%
+%\restoregeometry
 
 \input{takeaway}
 
